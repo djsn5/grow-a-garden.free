@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Récompense</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('fond-jardin.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 100px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    .progress-circle {
+      margin: 30px auto;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: conic-gradient(#ff9900 0% 0%, #ddd 0% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Regarde 4 pubs pour débloquer tes pets</h2>
+    <div class="progress-circle" id="progress">0%</div>
+    <button onclick="watchAd()">Regarder une pub</button>
+  </div>
+
+  <script>
+    let progress = 0;
+    function watchAd() {
+      if (progress < 100) {
+        progress += 25;
+        document.getElementById('progress').style.background = `conic-gradient(#ff9900 0% ${progress}%, #ddd ${progress}% 100%)`;
+        document.getElementById('progress').textContent = progress + '%';
+        if (progress === 100) {
+          alert("🎉 Bravo ! Tu as débloqué tes pets !");
+        }
+      }
+    }
+  </script>
+</body>
+</html>
