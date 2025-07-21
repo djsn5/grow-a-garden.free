@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ton pseudo</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('fond-jardin.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+    }
+    .container {
+      max-width: 500px;
+      margin: 150px auto;
+      background: rgba(255,255,255,0.9);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    input {
+      padding: 10px;
+      font-size: 18px;
+      width: 80%;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      background: #28a745;
+      color: white;
+      cursor: pointer;
+      opacity: 0.5;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+    button.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Entre ton pseudo</h2>
+    <input type="text" id="pseudo" placeholder="Ton pseudo ici" oninput="checkInput()">
+    <br>
+    <button id="next" onclick="next()">Suivant</button>
+  </div>
+
+  <script>
+    function checkInput() {
+      const input = document.getElementById('pseudo').value.trim();
+      const btn = document.getElementById('next');
+      if (input.length > 1) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    }
+
+    function next() {
+      window.location.href = "pets-final.html";
+    }
+  </script>
+</body>
+</html>
