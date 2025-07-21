@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bienvenue</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("fond-jardin.png");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      border-radius: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+
+    .btn {
+      background-color: #ffb347;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      background-color: #ffa500;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 100;
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-buttons a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      transition: color .3s;
+    }
+
+    .nav-buttons a:hover {
+      color: #ffd700;
+    }
+
+    .main-logo {
+      width: 100px;
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Grow a Garden">
+    <div class="nav-buttons">
+      <a href="index.html">Home</a>
+      <a href="pets.html">Pets Generator</a>
+    </div>
+  </header>
+
+  <div class="overlay">
+    <img src="logo.png" class="main-logo" alt="Main Logo">
+    <h1>Bienvenue dans mon jardin</h1>
+    <p>Cliquez pour entrer</p>
+    <button class="btn" onclick="window.location.href='pets.html'">Select your pets</button>
+  </div>
+</body>
+</html>
