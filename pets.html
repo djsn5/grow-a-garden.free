@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Choix de pets</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url('fond-jardin.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .overlay {
+      background: rgba(255, 255, 255, 0.8);
+      margin: 80px auto 40px;
+      padding: 20px;
+      max-width: 900px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    h1 {
+      text-align: center;
+    }
+    .pets-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .pet {
+      position: relative;
+      text-align: center;
+    }
+    .pet img {
+      width: 100px;
+      height: 100px;
+      transition: transform 0.3s ease;
+    }
+    .pet:hover img {
+      transform: scale(1.1);
+    }
+    .select-btn {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: #f5c542;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    .pet.selected .select-btn {
+      display: block;
+    }
+    .step-indicator {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .next-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      background: #ff9900;
+      color: white;
+      cursor: pointer;
+      opacity: 0.5;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+    .next-btn.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Choisis ton pet rare</h1>
+    <div class="pets-grid">
+      <!-- Pet 1 -->
+      <div class="pet" onclick="toggleSelect(this)">
+        <img src="https://static.wikia.nocookie.net/growagarden/images/d/d5/RedFox.png" alt="Red Fox">
+        <button class="select-btn">Choisi !</button>
+      </div>
+      <!-- Pet 2 -->
+      <div class="pet" onclick="toggleSelect(this)">
+        <img src="https://static.wikia.nocookie.net/growagarden/images/4/4d/Kitsune_.png" alt="Kitsune">
+        <button class="select-btn">Choisi !</button>
+      </div>
+      <!-- Pet 3 -->
+      <div class="pet" onclick="toggleSelect(this)">
+        <img src="https://static.wikia.nocookie.net/growagarden/images/0/00/MimicOctopusIcon.webp" alt="Mimic Octopus">
+        <button class="select-btn">Choisi !</button>
+      </div>
+      <!-- Pet 4 -->
+      <div class="pet" onclick="toggleSelect(this)">
+        <img src="https://static.wikia.nocookie.net/growagarden/images/b/be/Chicken_Zombie_Icon.png" alt="Chicken Jonkey">
+        <button class="select-btn">Choisi !</button>
+      </div>
+      <!-- Pet 5 -->
+      <div class="pet" onclick="toggleSelect(this)">
+        <img src="https://static.wikia.nocookie.net/growagarden/images/c/c9/DragonflyIcon.png" alt="Dragonfly">
+        <button class="select-btn">Choisi !</button>
+      </div>
+      <!-- Pet 6 -->
+      <div class="pet" onclick="toggleSelect(this)">
+        <img src="https://static.wikia.nocookie.net/growagarden/images/6/6c/Raccoon.png" alt="Raccoon">
+        <button class="select-btn">Choisi !</button>
+      </div>
+    </div>
+
+    <div class="step-indicator">Étape 1 sur 3</div>
+    <button id="nextBtn" class="next-btn" onclick="goNext()">Next</button>
+  </div>
+
+  <script>
+    function toggleSelect(el) {
+      el.classList.toggle('selected');
+      updateNextBtn();
+    }
+
+    function updateNextBtn() {
+      const selected = document.querySelectorAll('.pet.selected').length;
+      const nextBtn = document.getElementById('nextBtn');
+      if (selected > 0) {
+        nextBtn.classList.add('active');
+      } else {
+        nextBtn.classList.remove('active');
+      }
+    }
+
+    function goNext() {
+      window.location.href = "pets-step2.html";
+    }
+  </script>
+</body>
+</html>
